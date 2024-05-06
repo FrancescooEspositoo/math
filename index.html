@@ -24,7 +24,7 @@
 
         #risultato {
             text-align: center;
-            background: rgb(128, 128, 128);
+            background: rgb(128, 128, 128 , 0.6);
             margin: 0 25% 0 25%;
             border-radius: 15px;
         }
@@ -283,13 +283,13 @@
 
             switch (sceltaMisura) {
                 case "metri":
-                    tabellaHTML = "<tr><td>Millimetro</td><td>Mm</td></tr><tr><td>Centimetro</td><td>Cm</td></tr><tr><td>Decimetro</td><td>Dm</td></tr><tr><td>Metro</td><td>M</td></tr><tr><td>Ettometro</td><td>Hm</td></tr><tr><td>Kilometro</td><td>Km</td></tr>";
+                    tabellaHTML = "<tr><td>Millimetro</td><td>Mm</td></tr><tr><td>Centimetro</td><td>Cm</td></tr><tr><td>Decimetro</td><td>Dm</td></tr><tr><td>Metro</td><td>M</td></tr><tr><td>Decametro</td><td>Dam</td></tr><tr><td>Ettometro</td><td>Hm</td></tr><tr><td>Kilometro</td><td>Km</td></tr>";
                     break;
                 case "litri":
-                    tabellaHTML = "<tr><td>Millilitri</td><td>Ml</td></tr><tr><td>Centilitri</td><td>Cl</td></tr><tr><td>Decilitri</td><td>Dm</td></tr><tr><td>Litri</td><td>L</td></tr><tr><td>Ettolitri</td><td>Hl</td></tr><tr><td>Kilolitri</td><td>Kl</td></tr>";
+                    tabellaHTML = "<tr><td>Millilitro</td><td>Ml</td></tr><tr><td>Centilitro</td><td>Cl</td></tr><tr><td>Decilitro</td><td>Dm</td></tr><tr><td>Litro</td><td>L</td></tr><tr><td>Decalitro</td><td>Dal</td></tr><tr><td>Ettolitro</td><td>Hl</td></tr><tr><td>Kilolitro</td><td>Kl</td></tr>";
                     break;
                 case "grammi":
-                    tabellaHTML = "<tr><td>Milligrammi</td><td>Mg</td></tr><tr><td>Centigrammi</td><td>Cg</td></tr><tr><td>Decigrammi</td><td>Dg</td></tr><tr><td>Grammi</td><td>G</td></tr><tr><td>Ettogrammi</td><td>Hg</td></tr><tr><td>Kilogrammi</td><td>Kg</td></tr>";
+                    tabellaHTML = "<tr><td>Milligrammo</td><td>Mg</td></tr><tr><td>Centigrammo</td><td>Cg</td></tr><tr><td>Decigrammo</td><td>Dg</td></tr><tr><td>Grammo</td><td>G</td></tr><tr><td>Decagrammo</td><td>Dag</td></tr><tr><td>Ettogrammo</td><td>Hg</td></tr><tr><td>Kilogrammo</td><td>Kg</td></tr>";
                     break;
                 default:
                     alert("Non hai selezionato nessuna opzione! Seleziona una unità di misura.");
