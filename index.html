@@ -50,6 +50,7 @@
         }
 
 
+
         @media screen and (max-width: 768px) {
             .containerBottoni > .bottone {
                 margin-left: 17%;
@@ -63,6 +64,9 @@
             #stick{
                 width:35%;
                 margin-left: 35%;
+            }
+            #titleMisura{
+                margin-left: 20%;
             }
         }
     </style>
@@ -128,13 +132,18 @@
             <!--tabellina-->
             <div class="col-sm-6">
                 <h2 class="mt-5 mb-3">Tabelline</h2>
-                <form>
+                <form id="formTabellina">
                     <div class="form-group">
                         <label for="n1">Inserisci il numero di cui vuoi la tabellina:</label>
                         <input type="number" class="form-control" id="n1" name="n1" />
                         <br />
-                        <div class="bottone">
-                            <button type="button" class="btn btn-primary" onclick="calcolaTabellina()">Calcola</button>
+                        <div class="containerBottoni">
+                            <div class="bottone">
+                                <button type="button" class="btn btn-primary" onclick="calcolaTabellina()">Calcola</button>
+                            </div>
+                            <div class="bottone">
+                                <button type="button" class="btn btn-primary" onclick="resettaTabellina()">Resetta</button>
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -147,8 +156,7 @@
                                 </tr>
 
                             </thead>
-                            <tbody id="tabella">
-                            </tbody>
+                            <tbody id="tabella"></tbody>
                         </table>
                     </div>
                 </form>
@@ -160,6 +168,36 @@
     <div class="containerMisura">
         <div class="row">
             <div class="col-sm-12">
+                <h2 class="mt-5 mb-3" id="titleMisura">Le Unità di Misura</h2>
+                <form id="formMisura">
+                    <select class="form-select" id="misura" aria-label="Default select example">
+                        <option selected id="basic">Seleziona unita di misura</option>
+                        <option value="metri">Metri</option>
+                        <option value="litri">Litri</option>
+                        <option value="grammi">Grammi</option>
+                        
+                    </select>
+                    <br />
+                    <div class="containerBottoni">
+                        <div class="bottone">
+                            <button type="button" class="btn btn-primary" onclick="unitaMisura()">Cerca</button>
+                        </div>
+                        <div class="bottone">
+                            <button type="button" class="btn btn-primary" onclick="resettaMisura()">Resetta</button>
+                        </div>
+                    </div>
+                    <br />
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Prefisso</th>
+                                <th>Simbolo</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabellaMisura"></tbody>
+                    </table>
+                </form>
+
 
             </div>
         </div>
@@ -214,7 +252,7 @@
                 }
             }
         }
-        //funzione resetta per resettare i campi del form.
+        //funzione per resettare i campi del form.
         function resetta() {
             document.getElementById("form").reset();
             document.getElementById("risultato").innerHTML = "ORA PUOI EFFETTUARE UNA NUOVA OPERAZIONE!!";
@@ -224,7 +262,7 @@
 
 
 
-
+        //funzione per il calcolo delle tabelline messe in una tabella 
         function calcolaTabellina() {
             var n1 = parseInt(document.getElementById("n1").value);
             var tabellaHTML = "";
@@ -237,6 +275,41 @@
             document.getElementById("tabella").innerHTML = tabellaHTML;
         }
 
+        //funzione che mette in tabella le unità di misura scelte da un select dall'utente
+        function unitaMisura() {
+            var operazioneMisura = document.getElementById("misura");
+            var sceltaMisura = operazioneMisura.value;
+            var tabellaHTML = "";
+
+            switch (sceltaMisura) {
+                case "metri":
+                    tabellaHTML = "<tr><td>Millimetro</td><td>Mm</td></tr><tr><td>Centimetro</td><td>Cm</td></tr><tr><td>Decimetro</td><td>Dm</td></tr><tr><td>Metro</td><td>M</td></tr><tr><td>Ettometro</td><td>Hm</td></tr><tr><td>Kilometro</td><td>Km</td></tr>";
+                    break;
+                case "litri":
+                    tabellaHTML = "<tr><td>Millilitri</td><td>Ml</td></tr><tr><td>Centilitri</td><td>Cl</td></tr><tr><td>Decilitri</td><td>Dm</td></tr><tr><td>Litri</td><td>L</td></tr><tr><td>Ettolitri</td><td>Hl</td></tr><tr><td>Kilolitri</td><td>Kl</td></tr>";
+                    break;
+                case "grammi":
+                    tabellaHTML = "<tr><td>Milligrammi</td><td>Mg</td></tr><tr><td>Centigrammi</td><td>Cg</td></tr><tr><td>Decigrammi</td><td>Dg</td></tr><tr><td>Grammi</td><td>G</td></tr><tr><td>Ettogrammi</td><td>Hg</td></tr><tr><td>Kilogrammi</td><td>Kg</td></tr>";
+                    break;
+                default:
+                    alert("Non hai selezionato nessuna opzione! Seleziona una unità di misura.");
+   
+
+            }
+            document.getElementById("tabellaMisura").innerHTML = tabellaHTML;
+        }
+
+        //funzione per il bottone resetta
+        function resettaMisura() {
+            document.getElementById("formMisura").reset();
+            document.getElementById("tabellaMisura").innerHTML = "";
+        }
+
+
+        function resettaTabellina() {
+            document.getElementById("formTabellina").reset();
+            document.getElementById("tabella").innerHTML = "";
+        }
     </script>
 
 </body>
