@@ -269,11 +269,12 @@
             var tabellaHTML = "";
             if (isNaN(n1)) {
                 alert("Per poter procedere devi inserire un numero. ");
+            } else {
+                    for (var i = 1; i <= 10; i++) {
+                        var risultato = n1 * i;
+                        tabellaHTML += "<tr><td>" + n1 + "</td><td>" + n1 + "x" + i + " = </td><td>" + risultato + "</td></tr>";
+                    }
             }
-                for (var i = 1; i <= 10; i++) {
-                    var risultato = n1 * i;
-                    tabellaHTML += "<tr><td>" + n1 + "</td><td>" + n1 + "x" + i + " = </td><td>" + risultato + "</td></tr>";
-                }
             
 
             document.getElementById("tabella").innerHTML = tabellaHTML;
